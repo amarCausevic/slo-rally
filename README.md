@@ -1,10 +1,17 @@
 # slo-rally
-Project is based on express.js and react native for IOS and ANDROID devices application. With different features for mobile application for rally Slovenia, time, live results, result of previous year, etc.
+
+Project is based on express.js and react native for IOS and ANDROID devices application. With
+different features for mobile application for rally Slovenia, time, live results, result of previous
+year, etc.
 
 # Local Setup
+
 npm init -y
 npm install express
 npm install --save-dev typescript @types/node @types/express ts-node
+npm install express-async-handler // For handling aysnc calls
+npm install fast-xml-parser // For parsing xml
+npm install node-fetch // For requests
 
 Here’s what these packages do:
 
@@ -12,10 +19,13 @@ express: The Express.js framework.
 typescript: TypeScript compiler.
 @types/node: Type definitions for Node.js.
 @types/express: Type definitions for Express.js.
-ts-node: A TypeScript execution engine for Node.js, useful for running TypeScript files directly during development.
+ts-node: A TypeScript execution engine for Node.js, useful for running TypeScript files directly
+during development.
 
 # Configure Typescript
+
 npx tsc --init
+
 ```
 {
   "compilerOptions": {
@@ -41,6 +51,7 @@ npx tsc --init
 ```
 
 # Architecture example
+
 ```
 my-express-ts-app/
 ├── src/                         # Source files (TypeScript files)
@@ -73,4 +84,18 @@ my-express-ts-app/
 ├── .env                         # Environment variables (e.g., DB_URI, JWT_SECRET)
 ├── .gitignore                   # To exclude files/folders from git (node_modules, dist, etc.)
 └── README.md                    # Project documentation
+```
+
+```
+/my-express-app
+├── /controllers
+│   └── competitionController.ts   # Handles the logic for the /competition endpoint
+├── /routes
+│   └── competitionRoutes.ts      # Defines the /competition route
+├── /utils
+│   └── xmlParser.ts              # Utility function to parse XML
+├── /node_modules
+├── package.json
+├── tsconfig.json
+└── server.ts                     # The entry point for the application
 ```
