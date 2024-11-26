@@ -4,14 +4,14 @@ import fetch from "node-fetch";
 import {parseXmlToJson} from "../utilities/xmlParser";
 
 class CompetitionsController {
-  baseURL: string = 'https://api.competitions.com';
+  baseURL: string = 'https://results.omikronplus.si/tekmovanja.xml';
 
   public getCompetitions: any = asyncHandler(async (req: Request, res: Response): Promise<void> => {
     try {
       const response: any = await fetch(this.baseURL)
       const xmlData: any = await response.text();
       const jsonResponse: any = parseXmlToJson(xmlData);
-
+  
       res.json(jsonResponse);
       console.log("This is the response: " + jsonResponse)
     } catch (err) {
@@ -21,3 +21,5 @@ class CompetitionsController {
     }
   });
 }
+
+export default new CompetitionsController();

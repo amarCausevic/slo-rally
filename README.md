@@ -12,6 +12,7 @@ npm install --save-dev typescript @types/node @types/express ts-node
 npm install express-async-handler // For handling aysnc calls
 npm install fast-xml-parser // For parsing xml
 npm install node-fetch // For requests
+npm install @types/cors --save-dev
 
 Here’s what these packages do:
 
